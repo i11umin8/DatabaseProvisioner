@@ -9,7 +9,6 @@ const password = config.dbPassword
 const ttl = config.ttl
 const dirLocation = config.dirLocation
 const uriWithAuth = user && password ? `${user}:${password}@${uri}` : uri
-const databaseConnectionUrl = `mongodb://${uriWithAuth}/ipblocker`
 
 const provisionDatabase = async () => {
 
