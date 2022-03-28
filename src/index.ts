@@ -3,12 +3,8 @@ import { Repository } from './util/Repository';
 import { DatabasePopulator } from './util/DatabasePopulator';
 import { DatabaseConnector } from './util/DatabaseConnector';
 
-const uri = config.dbUrl
-const user = config.dbUser
-const password = config.dbPassword
 const ttl = config.ttl
 const dirLocation = config.dirLocation
-const uriWithAuth = user && password ? `${user}:${password}@${uri}` : uri
 
 const provisionDatabase = async () => {
 
