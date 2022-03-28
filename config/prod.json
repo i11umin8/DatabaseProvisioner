@@ -1,0 +1,7 @@
+{
+    "dbUrl": "ipblocker.cluster-cupdgcnhpbjv.us-west-2.docdb.amazonaws.com",
+    "dbUser": "removed from public repo",
+    "dbPassword": "removed from public repo",
+    "tls": "rds-combined-ca-bundle.pem",
+    "ttl": 86400
+}

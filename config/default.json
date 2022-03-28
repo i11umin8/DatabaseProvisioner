@@ -1,0 +1,10 @@
+{
+	"port":3000,
+	"repository": "blocklist-ipsets",
+	"treeUrl": "/repos/firehol/blocklist-ipsets/git/trees/",
+	"commitsUrl": "/repos/firehol/blocklist-ipsets/commits",
+	"repoUrl": "https://github.com/firehol/blocklist-ipsets",
+	"dbUrl": "localhost",
+	"dirLocation": "/tmp/repo",
+	"ttl": 3600
+}

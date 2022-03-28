@@ -1,0 +1,36 @@
+version: 0.2
+
+env:
+  shell: bash
+phases:
+  install: 
+    on-failure: ABORT
+    commands:
+      npm install
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+      - wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+      - unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+      - sudo ./sam-installation/install
+      - sam --version
+      - rm -rf sam-installation
+      - rm aws-sam-cli-linux-x86_64.zip
+  build:
+    on-failure: ABORT
+    commands:
+      - ls -la 
+      - npm --version
+      - npm run build
+      - npm run test
+    finally:
+
+  post_build:
+    on-failure: ABORT
+    commands:
+      - sam package --template-file template.yml --output-template-file package.yml --s3-bucket database-provisioner-artifacts
+      - sam deploy --template-file package.yml --stack-name test-lambda-deploy --capabilities CAPABILITY_IAM 
+      - mv appspec.yml build
+      - ls -la
+

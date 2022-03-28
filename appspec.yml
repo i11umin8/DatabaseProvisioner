@@ -1,0 +1,9 @@
+version: 1.0
+Resources:
+  - databaseProvisioner:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "databaseProvisioner"
+        Alias: "databaseProvisioner"
+        CurrentVersion: "1"
+        TargetVersion: "2"
